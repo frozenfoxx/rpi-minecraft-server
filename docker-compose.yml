@@ -1,0 +1,18 @@
+minecraft:
+  image: frozenfoxx/rpi-minecraft-server
+  ports:
+    - "25565:25565"
+  volumes_from:
+    - minecraft_data
+  restart: always
+  environment:
+    - ADVANCED_DISABLEUPDATES=true
+    - EULA=true
+    - DEFAULT_OP=frozenfoxx
+    - VERSION=latest
+    - JAVA_OPTS=-server -Xmx496M -Xms496M
+
+minecraft_data:
+  image: frozenfoxx/rpi-minecraft-server
+  volumes:
+    - /srv
