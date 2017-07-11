@@ -1,0 +1,10 @@
+#!/bin/ash
+
+# Change into server directory
+cd /srv
+
+# Run the installer
+$MINECRAFT_HOME/minecraft_installer.sh
+
+# Run the server
+/sbin/su-exec mineuser java $JAVA_OPTS -jar "$MINECRAFT_HOME/minecraft_server.jar" nogui
